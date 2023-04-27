@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChatAppSR
-{
-    internal class GlobalUsing
-    {
-    }
-}
+﻿global using System;
+global using System.Collections.Generic;
+global using System.ComponentModel;
+global using System.Linq;
+global using System.Runtime.CompilerServices;
+global using System.Text;
+global using System.Threading.Tasks;
+global using System.Windows.Input;
+global using ChatAppSR.Services.Authentication;
+global using Newtonsoft.Json;
+global using ServiceProvider = ChatAppSR.Services.ServiceProvider;
