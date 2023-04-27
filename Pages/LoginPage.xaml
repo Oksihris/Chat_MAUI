@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:ChatAppSR.ViewModels"
              x:Class="ChatAppSR.Pages.LoginPage"
              Title="LoginPage"
              Background="#13232f">
-    
+
+    <ContentPage.BindingContext>
+        <viewModel:LoginPageViewModel/>
+    </ContentPage.BindingContext>
 
     <Grid>
         <VerticalStackLayout 
@@ -24,7 +28,9 @@
                 <Entry 
                     Placeholder="User name" 
                     ReturnType="Go" 
-                    TextColor="Black"/>
+                    TextColor="Black"
+                    Text="{Binding UserName}"
+                    />
             </Frame>
             <Frame 
                 Padding ="10,0,10,0" 
@@ -34,12 +40,19 @@
                     Placeholder="Password" 
                     ReturnType="Go" 
                     TextColor="Black"
-                    IsPassword="True"/>
+                    IsPassword="True"
+                    Text="{Binding Password}"/>
             </Frame>
 
             <Label Margin="0,10,0,0" Text="Forgot password" TextColor="Tomato"/>
 
-            <Button Text="Login" BackgroundColor="Coral" TextColor="AliceBlue" Margin="0,25,0,0"/>
+            <Button 
+                Text="Login" 
+                BackgroundColor="Coral" 
+                TextColor="AliceBlue" 
+                Margin="0,25,0,0"
+                Command="{Binding LoginCommand }"
+                />
 
             <HorizontalStackLayout Margin="0,50,0,0" HorizontalOptions="Center">
                 <Line BackgroundColor="Gray" HeightRequest="0.5" WidthRequest="60"/>
