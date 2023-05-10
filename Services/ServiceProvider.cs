@@ -12,7 +12,7 @@ namespace ChatAppSR.Services
     {
         private static ServiceProvider _instance;
 
-        public string _serverRootUrl = "http://10.0.2.2:7233";
+        public string _serverRootUrl = "http://10.0.2.2:7224";
 
         public string _accessToken = "";
         private ServiceProvider() { }
@@ -26,6 +26,8 @@ namespace ChatAppSR.Services
         public async Task <AuthenticateResponse> Authenticate (AuthenticateRequest request)
         {
             using (HttpClient client = new HttpClient()) {
+
+                client.Timeout = TimeSpan.FromSeconds(10);
                 var httpRequestMessage = new HttpRequestMessage();
                 httpRequestMessage.Method = HttpMethod.Post;
                 httpRequestMessage.RequestUri = new Uri(_serverRootUrl + "/Authenticate/Authenticate");
